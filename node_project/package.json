@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-dev",
+  "version": "0.1.0",
+  "description": "nodejs image demo",
+  "author": "Sergio Gonzalez Jimenez",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
