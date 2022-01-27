@@ -1,26 +1,37 @@
-const express = require('express');
+const express = require('express'),
+      path = require('path'),
+      morgan = require('morgan'),
+      mysql = require('mysql'),
+      myConnection = require('express-myconnection');
+
 const app = express();
-const router = express.Router();
 
-const path = __dirname + '/views/';
-const port = 8080;
+// importing routes
+const customerRoutes = require('./routes/customer');
 
-router.use(function (req,res,next) {
-  console.log('/' + req.method);
-  next();
+// settings
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// middlewares
+app.use(morgan('dev'));
+app.use(myConnection(mysql, {
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  port: 3306,
+  database: 'schedule'
+}, 'single'));
+app.use(express.urlencoded({extended: false}));
+
+// routes
+app.use('/', customerRoutes);
+
+// static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// starting the server
+app.listen(app.get('port'), () => {
+  console.log(`server on port ${app.get('port')}`);
 });
-
-router.get('/', function(req,res){
-  res.sendFile(path + 'index.html');
-});
-
-router.get('/sharks', function(req,res){
-  res.sendFile(path + 'sharks.html');
-});
-
-app.use(express.static(path));
-app.use('/', router);
-
-app.listen(port, function () {
-  console.log('Example app listening on port 8080!')
-})
