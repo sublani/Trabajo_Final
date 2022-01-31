@@ -10,17 +10,27 @@ services:
     volumes:
       - ./mysql-dump:/docker-entrypoint-initdb.d
       - ./data:/var/lib/mysql
+    networks:
+      - app
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
-
+    networks:
+      - app
+      
   mysqld-exporter:
     image: prom/mysqld-exporter
     ports:
       - 9104:9104
     environment:
             - DATA_SOURCE_NAME="exporter:exporter@(mysql:3306)/schedule"
+    networks:
+      - app
+
+networks:
+  app:
+    external: true
 
