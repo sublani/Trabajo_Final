@@ -1,12 +1,16 @@
 pipeline {
     agent any
-
-    properties([
-        pipelineTriggers([
-            githubPush()
-        ])
-    ])
     
+    options {
+        buildDiscarder(logRotator(numToKeepStr:'5'))
+        disableConcurrentBuilds()
+        properties([
+            pipelineTriggers([
+                githubPush()
+            ])
+        ])
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -22,6 +26,12 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    
+    post {
+        failure {
+            sh 'echo "Envía correo; mail to: team@example.com, subject: \'The Pipeline failed :(\''
         }
     }
 }
