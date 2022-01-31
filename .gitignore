@@ -103,6 +103,10 @@ dist
 # TernJS port file
 .tern-port
 
+<<<<<<< HEAD
 # Node_proyect
 .dockerignore
 **/data
+=======
+app/data/*
+>>>>>>> be8f2b785927c72a2ec197f0de4442a2cbe2486a
