@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''echo "docker build -t app:0.1.0 ." &&
-                    docker build -t app:0.1.0 -f /opt/Trabajo_Final/app/node_project/Dockerfile .
+                      sudo docker build -t app:0.1.0 -f /opt/Trabajo_Final/app/node_project/Dockerfile .
                 '''
             }
         }
