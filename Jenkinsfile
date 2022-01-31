@@ -1,13 +1,8 @@
 pipeline {
     agent any
     
-    properties([
-        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
-        disableConcurrentBuilds(), 
-        pipelineTriggers([githubPush()])
-    ])
-
-    stage('Setup parameters') {
+    stages {
+        stage('Setup parameters') {
             steps {
                 script { 
                     properties([
@@ -18,8 +13,6 @@ pipeline {
                 }
             }
         }
-
-    stages {
         stage('Build') {
             steps {
                 echo 'Building..'
