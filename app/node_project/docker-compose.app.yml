@@ -3,7 +3,7 @@ services:
   app:
     image: app:0.1.0
     ports:
-      3000:3000
+      - 3000:3000
     networks:
       - app
 

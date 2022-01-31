@@ -7,11 +7,11 @@ const express = require('express'),
 const app = express();
 
 // importing routes
-const customerRoutes = require('./routes/customer');
+const customerRoutes = require('./src/routes/customer');
 
 // settings
 app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'ejs');
 
 // middlewares
