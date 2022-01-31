@@ -1,15 +1,23 @@
 pipeline {
     agent any
     
-    options {
-        buildDiscarder(logRotator(numToKeepStr:'5'))
-        disableConcurrentBuilds()
-        properties([
-            pipelineTriggers([
-                githubPush()
-            ])
-        ])
-    }
+    properties([
+        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
+        disableConcurrentBuilds(), 
+        pipelineTriggers([githubPush()])
+    ])
+
+    stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), 
+                        disableConcurrentBuilds(), 
+                        pipelineTriggers([githubPush()])
+                    ])
+                }
+            }
+        }
 
     stages {
         stage('Build') {
