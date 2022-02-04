@@ -1,5 +1,9 @@
 pipeline {
-    agent slave01
+    agent { 
+        node { 
+            label 'slave01' 
+        } 
+    }  
     
     stages {
         stage('Setup parameters') {
@@ -13,11 +17,22 @@ pipeline {
                 }
             }
         }
+        /*
+        stage('Clean') {
+            steps {
+                echo 'Cleanning..'
+                sh '''sudo docker-compose -f /opt/Trabajo_Final/app/node_project/docker-compose.app.yml down ;
+                      sudo docker rmi app:0.1.0-SNAPSHOT;
+                '''
+            }
+        }*/
+        
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh '''echo "docker build -t app:0.1.0 ." &&
-                      sudo docker build -t app:0.1.0 -f /opt/Trabajo_Final/app/node_project/Dockerfile .
+                sh '''echo "docker build -t app:0.1.0-SNAPSHOT ." &&
+                      sudo docker build -t app:0.1.0-SNAPSHOT -f app/node_project/Dockerfile . &&
+                      sudo docker-compose -f /opt/Trabajo_Final/app/node_project/docker-compose.app.yml up
                 '''
             }
         }
