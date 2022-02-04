@@ -17,15 +17,15 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('Clean') {
             steps {
                 echo 'Cleanning..'
-                sh '''sudo docker-compose -f /opt/Trabajo_Final/app/node_project/docker-compose.app.yml down ;
+                sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml down ;
                       sudo docker rmi app:0.1.0-SNAPSHOT;
                 '''
             }
-        }*/
+        }
         
         stage('Build') {
             steps {
