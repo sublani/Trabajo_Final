@@ -1,0 +1,14 @@
+version: '2.2'
+services:
+  jenkins-slave:
+    image: jenkins/slave:4.9-1
+    init: 'java -jar /usr/share/jenkins/agent.jar'
+    #    volumes:
+    #  - './agent.jar:/usr/share/jenkins/agent.jar'
+    networks:
+      - app
+
+networks:
+  app:
+    external: true
+

@@ -1,0 +1,33 @@
+feb. 04, 2022 7:51:46 P. M. org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFORMACIÓN: Using /opt/Trabajo_Final/app/jenkins-slave/workdir/remoting as a remoting work directory
+feb. 04, 2022 7:51:46 P. M. org.jenkinsci.remoting.engine.WorkDirManager setupLogging
+INFORMACIÓN: Both error and output logs will be printed to /opt/Trabajo_Final/app/jenkins-slave/workdir/remoting
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main createEngine
+INFORMACIÓN: Setting up agent: slave01
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main$CuiListener <init>
+INFORMACIÓN: Jenkins agent is running in headless mode.
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.Engine startEngine
+INFORMACIÓN: Using Remoting version: 4.11.2
+feb. 04, 2022 7:51:46 P. M. org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFORMACIÓN: Using /opt/Trabajo_Final/app/jenkins-slave/workdir/remoting as a remoting work directory
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Locating server among [http://192.168.0.25:7001/]
+feb. 04, 2022 7:51:46 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+INFORMACIÓN: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Agent discovery successful
+  Agent address: 192.168.0.25
+  Agent port:    50000
+  Identity:      c6:f4:3d:e3:e0:cf:9b:0b:78:a6:4d:48:93:36:55:b8
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Handshaking
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Connecting to 192.168.0.25:50000
+feb. 04, 2022 7:51:46 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Trying protocol: JNLP4-connect
+feb. 04, 2022 7:51:46 P. M. org.jenkinsci.remoting.protocol.impl.BIONetworkLayer$Reader run
+INFORMACIÓN: Waiting for ProtocolStack to start.
+feb. 04, 2022 7:51:47 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Remote identity confirmed: c6:f4:3d:e3:e0:cf:9b:0b:78:a6:4d:48:93:36:55:b8
+feb. 04, 2022 7:51:47 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Connected
