@@ -1,5 +1,9 @@
 pipeline {
-    agent slave01
+    agent { 
+        node { 
+            label 'slave01' 
+        } 
+    }  
     
     stages {
         stage('Setup parameters') {
