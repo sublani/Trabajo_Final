@@ -31,3 +31,17 @@ feb. 04, 2022 7:51:47 P. M. hudson.remoting.jnlp.Main$CuiListener status
 INFORMACIÓN: Remote identity confirmed: c6:f4:3d:e3:e0:cf:9b:0b:78:a6:4d:48:93:36:55:b8
 feb. 04, 2022 7:51:47 P. M. hudson.remoting.jnlp.Main$CuiListener status
 INFORMACIÓN: Connected
+feb. 04, 2022 10:08:30 P. M. hudson.remoting.jnlp.Main$CuiListener status
+INFORMACIÓN: Terminated
+feb. 04, 2022 10:08:41 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
+feb. 04, 2022 10:08:51 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
+feb. 04, 2022 10:09:01 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
+feb. 04, 2022 10:09:11 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
+feb. 04, 2022 10:09:21 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
+feb. 04, 2022 10:09:31 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
