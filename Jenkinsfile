@@ -30,20 +30,25 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh '''echo "docker build -t app:0.1.0-SNAPSHOT ." &&
-                      sudo docker build -t app:0.1.0-SNAPSHOT -f app/node_project/Dockerfile . &&
-                      sudo docker-compose -f /opt/Trabajo_Final/app/node_project/docker-compose.app.yml up
+                sh '''sudo docker build -t app:0.1.0-SNAPSHOT -f app/node_project/Dockerfile .
                 '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                /*sh '''sudo sleep 15 &&
+                      wget http://192.168.0.25:3000/
+                '''*/
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml up -d &&
+                      sudo sleep 15 &&
+                      wget http://192.168.0.25:3000/
+                '''
             }
         }
     }
