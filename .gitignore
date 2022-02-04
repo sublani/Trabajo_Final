@@ -109,5 +109,5 @@ dist
 =======
 app/data/*
 app/data/jenkins/data/*
-app/data/jenkins-slave/workdir/*
+**/workdir/*
 
