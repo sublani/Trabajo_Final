@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''echo "docker build -t app:0.1.0-SNAPSHOT ." &&
-                      sudo docker build -t app:0.1.0-SNAPSHOT -f /opt/Trabajo_Final/app/node_project/Dockerfile . &&
+                      sudo docker build -t app:0.1.0-SNAPSHOT -f app/node_project/Dockerfile . &&
                       sudo docker-compose -f /opt/Trabajo_Final/app/node_project/docker-compose.app.yml up
                 '''
             }
