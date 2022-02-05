@@ -65,3 +65,5 @@ feb. 04, 2022 10:11:01 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointReso
 INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
 feb. 04, 2022 10:11:11 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
 INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)
+feb. 04, 2022 10:11:21 P. M. org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+INFORMACIÓN: Failed to connect to the master. Will try again: java.net.ConnectException Connection refused (Connection refused)

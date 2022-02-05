@@ -110,4 +110,4 @@ dist
 app/data/*
 app/data/jenkins/data/*
 **/workdir/*
-
+app/jenkins-slave/nohup.out
