@@ -109,5 +109,7 @@ dist
 **/workdir/*
 **/nohup.out
 **/secret-file
-**/prometheus
 **/data
+**/prometheus/prometheus
+**/grafana/grafana
+**/alertmanager/alertmanager
