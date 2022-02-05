@@ -103,12 +103,11 @@ dist
 # TernJS port file
 .tern-port
 
-# Node_proyect
+
+# Propias
 .dockerignore
-**/data
-=======
-app/data/*
-app/data/jenkins/data/*
 **/workdir/*
 **/nohup.out
 **/secret-file
+**/prometheus
+**/data

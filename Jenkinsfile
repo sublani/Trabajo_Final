@@ -64,7 +64,7 @@ pipeline {
       steps {
         echo 'Sonar ....'
         sh   'sleep 2'
-        echo " INFO: Task total time: 3.785 s \nINFO: ------------------------------------------------------- \nINFO: EXECUTION SUCCESS \nINFO: ------------------------------------------------------- \nINFO: Total time: 4.023s \nINFO: Final Memory: 37M/128M \nINFO: -------------------------------------------------------"
+        echo "INFO: Task total time: 3.785 s \nINFO: ------------------------------------------------------- \nINFO: EXECUTION SUCCESS \nINFO: ------------------------------------------------------- \nINFO: Total time: 4.023s \nINFO: Final Memory: 37M/128M \nINFO: -------------------------------------------------------"
       }
     }
 
@@ -85,7 +85,7 @@ pipeline {
         echo 'Deploying...'
         sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
               sleep 15 &&
-              wget http://192.168.0.25:3000/
+              wget http://localhost:3000/
         '''
       }
     } 
@@ -100,7 +100,7 @@ pipeline {
         echo 'Deploying...'
         sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
               sleep 15 &&
-              wget http://192.168.0.25:3000/
+              wget http://localhost:3000/
         '''
       }
     }
