@@ -63,7 +63,7 @@ pipeline {
         echo 'Running com.logicbig.schedule.UserInputScheduleTest'
         echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.258 sec'
         echo 'Results :'
-        echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0 '''
+        echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0 '
       }
     }
     
