@@ -29,7 +29,7 @@ pipeline {
           if (!fileExists('Jenkinsfile.properties')){
             exit
           }
-          props = readProperties file:'Jenkinsfile.properties'
+	  props = readProperties  file: 'Jenkinsfile.properties'          
           NAME = props['NAME']
           VERSION = props['VERSION']
         }
