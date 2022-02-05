@@ -41,8 +41,8 @@ pipeline {
     stage('Clean') {
       steps {
         echo 'Cleanning..'
-        sh '''docker-compose -f app/node_project/docker-compose.app.yml down ;
-              docker rmi ${NAME}:${VERSION} ;
+        sh 'docker-compose -f app/node_project/docker-compose.app.yml down'
+                docker rmi ${NAME}:${VERSION} ;
         '''
       }
     }
