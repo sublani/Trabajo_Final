@@ -11,6 +11,7 @@
 docker-compose -f ./app/mysql/docker-compose.mysql.yml down ;
 docker-compose -f ./app/node_project/docker-compose.app.yml down ;
 docker-compose -f ./app/jenkins/docker-compose.jenkins.yml down ;
+docker-compose -f ./app/monitor/node-exporter/docker-compose.node-exporter.yml down ;
 
 #----------------
 
