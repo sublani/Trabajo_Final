@@ -33,14 +33,13 @@ pipeline {
           NAME = props['NAME']
           VERSION = props['VERSION']
         }
-        echo "NAME=${NAME}"
-	      echo "VERSION=${VERSION}"
+        echo "NAME=${NAME} \nVERSION=${VERSION}"
       }
     }
         
     stage('Clean') {
       steps {
-        echo "Cleanning.."
+        echo "Cleanning..."
         sh   "docker-compose -f app/node_project/docker-compose.app.yml down"
         sh   "docker rmi ${NAME}:${VERSION}"
       }
@@ -48,14 +47,14 @@ pipeline {
     
     stage('Build') {
       steps {
-        echo "Building.."
+        echo "Building..."
         sh   "docker build -t ${NAME}:${VERSION} -f app/node_project/Dockerfile ."
       }
     }
     
     stage('Test') {
       steps {
-        echo 'Testing..'
+        echo 'Testing...'
         sh   'sleep 3'
         echo '-------------------------------------------------------'
         echo ' T E S T S'
@@ -71,19 +70,13 @@ pipeline {
       steps {
         echo 'Sonar ....'
         sh   'sleep 2'
-        echo 'INFO: Task total time: 3.785 s'
-        echo 'INFO: -------------------------------------------------------'
-        echo 'INFO: EXECUTION SUCCESS'
-        echo 'INFO: -------------------------------------------------------'
-        echo 'INFO: Total time: 4.023s'
-        echo 'INFO: Final Memory: 37M/128M'
-        echo 'INFO: -------------------------------------------------------'
+        echo " INFO: Task total time: 3.785 s \n INFO: ------------------------------------------------------- \n INFO: EXECUTION SUCCESS \n INFO: ------------------------------------------------------- \n INFO: Total time: 4.023s \n INFO: Final Memory: 37M/128M \n INFO: -------------------------------------------------------"
       }
     }
 
     stage('Push') {
       steps {
-        echo "Pushing...."
+        echo "Pushing..."
         echo "docker push ${NAME}:${VERSION}"
       }
     }
@@ -95,7 +88,7 @@ pipeline {
         }
       }
       steps {
-        echo 'Deploying....'
+        echo 'Deploying...'
         sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
               sleep 15 &&
               wget http://192.168.0.25:3000/
@@ -110,7 +103,7 @@ pipeline {
         }
       }
       steps {
-        echo 'Deploying....'
+        echo 'Deploying...'
         sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
               sleep 15 &&
               wget http://192.168.0.25:3000/
