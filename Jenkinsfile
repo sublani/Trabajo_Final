@@ -33,13 +33,15 @@ pipeline {
           NAME = props['NAME']
           VERSION = props['VERSION']
         }
+        echo 'NAME=${NAME}'
+	echo 'VERSION=${VERSION}'
       }
     }
         
     stage('Clean') {
       steps {
         echo 'Cleanning..'
-        sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml down ;
+        sh '''docker-compose -f app/node_project/docker-compose.app.yml down ;
               sudo docker rmi ${NAME}:${VERSION} ;
         '''
       }
