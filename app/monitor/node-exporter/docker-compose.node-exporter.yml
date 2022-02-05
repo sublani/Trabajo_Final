@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    command:
+      - '--path.rootfs=/host'
+    restart: unless-stopped
+    networks:
+      - app
+
+networks:
+  app:
+    external: true
