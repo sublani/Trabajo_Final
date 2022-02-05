@@ -14,6 +14,7 @@ docker-compose -f ./app/jenkins/docker-compose.jenkins.yml down ;
 
 #----------------
 
+kill -9 echo $(ps aux  | grep java | awk '{print $2}') ;
 docker system prune -af
 
 #----------------
