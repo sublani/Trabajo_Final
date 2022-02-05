@@ -18,6 +18,8 @@ docker-compose -f ./app/node_project/docker-compose.app.yml up -d ;
 
 docker-compose -f ./app/jenkins/docker-compose.jenkins.yml up -d ;
 
+docker-compose -f ./app/monitor/node-exporter/docker-compose.node-exporter.yml up -d ;
+
 #----------------
 
 sleep 30 ;
