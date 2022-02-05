@@ -108,7 +108,7 @@ pipeline {
     
   post {
     failure {
-      sh 'echo "Envía correo; mail to: team@example.com, subject: \'The Pipeline failed :(\''
+      sh 'echo "Envía correo \nmail to: sergonji@bootcamp.com, subject: \'The Pipeline failed :(\''
     }
   }
 }

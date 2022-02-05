@@ -3,7 +3,7 @@ services:
   alertmanager:
     image: prom/alertmanager:v0.23.0
     volumes:
-      - ./alertmanager/:/etc/alertmanager/
+      - ./alertmanager:/etc/alertmanager/
     command:
       - '--config.file=/etc/alertmanager/config.yml'
       - '--storage.path=/alertmanager'
