@@ -33,8 +33,8 @@ pipeline {
           NAME = props['NAME']
           VERSION = props['VERSION']
         }
-        echo 'NAME=${NAME}'
-	echo 'VERSION=${VERSION}'
+        echo "NAME=${NAME}"
+	echo "VERSION=${VERSION}"
       }
     }
         
@@ -42,7 +42,7 @@ pipeline {
       steps {
         echo 'Cleanning..'
         sh '''docker-compose -f app/node_project/docker-compose.app.yml down ;
-              sudo docker rmi ${NAME}:${VERSION} ;
+              docker rmi ${NAME}:${VERSION} ;
         '''
       }
     }
@@ -50,7 +50,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        sh '''sudo docker build -t ${NAME}:${VERSION} -f app/node_project/Dockerfile .
+        sh '''docker build -t ${NAME}:${VERSION} -f app/node_project/Dockerfile .
         '''
       }
     }
@@ -98,8 +98,8 @@ pipeline {
       }
       steps {
         echo 'Deploying....'
-        sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml up -d &&
-              sudo sleep 15 &&
+        sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
+              sleep 15 &&
               wget http://192.168.0.25:3000/
         '''
       }
@@ -113,8 +113,8 @@ pipeline {
       }
       steps {
         echo 'Deploying....'
-        sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml up -d &&
-              sudo sleep 15 &&
+        sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
+              sleep 15 &&
               wget http://192.168.0.25:3000/
         '''
       }
