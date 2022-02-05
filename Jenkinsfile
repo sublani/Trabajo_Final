@@ -34,24 +34,22 @@ pipeline {
           VERSION = props['VERSION']
         }
         echo "NAME=${NAME}"
-	echo "VERSION=${VERSION}"
+	      echo "VERSION=${VERSION}"
       }
     }
         
     stage('Clean') {
       steps {
-        echo 'Cleanning..'
-        sh 'docker-compose -f app/node_project/docker-compose.app.yml down'
-                docker rmi ${NAME}:${VERSION} ;
-        '''
+        echo "Cleanning.."
+        sh   "docker-compose -f app/node_project/docker-compose.app.yml down"
+        sh   "docker rmi ${NAME}:${VERSION}"
       }
     }
     
     stage('Build') {
       steps {
-        echo 'Building..'
-        sh '''docker build -t ${NAME}:${VERSION} -f app/node_project/Dockerfile .
-        '''
+        echo "Building.."
+        sh   "docker build -t ${NAME}:${VERSION} -f app/node_project/Dockerfile ."
       }
     }
     
@@ -85,8 +83,8 @@ pipeline {
 
     stage('Push') {
       steps {
-        echo 'Pushing....'
-        echo 'sudo docker push ${NAME}:${VERSION}'
+        echo "Pushing...."
+        echo "docker push ${NAME}:${VERSION}"
       }
     }
 
