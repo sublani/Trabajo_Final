@@ -56,13 +56,7 @@ pipeline {
       steps {
         echo 'Testing...'
         sh   'sleep 3'
-        echo '-------------------------------------------------------'
-        echo ' T E S T S'
-        echo '-------------------------------------------------------'
-        echo 'Running com.logicbig.schedule.UserInputScheduleTest'
-        echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.258 sec'
-        echo 'Results :'
-        echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0 '
+        echo "------------------------------------------------------- \n T E S T S \n------------------------------------------------------- \nRunning com.logicbig.schedule.UserInputScheduleTest \nTests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.258 sec \nResults : \nTests run: 11, Failures: 0, Errors: 0, Skipped: 0"
       }
     }
     
@@ -70,7 +64,7 @@ pipeline {
       steps {
         echo 'Sonar ....'
         sh   'sleep 2'
-        echo " INFO: Task total time: 3.785 s \n INFO: ------------------------------------------------------- \n INFO: EXECUTION SUCCESS \n INFO: ------------------------------------------------------- \n INFO: Total time: 4.023s \n INFO: Final Memory: 37M/128M \n INFO: -------------------------------------------------------"
+        echo " INFO: Task total time: 3.785 s \nINFO: ------------------------------------------------------- \nINFO: EXECUTION SUCCESS \nINFO: ------------------------------------------------------- \nINFO: Total time: 4.023s \nINFO: Final Memory: 37M/128M \nINFO: -------------------------------------------------------"
       }
     }
 
