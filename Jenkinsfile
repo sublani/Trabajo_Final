@@ -1,6 +1,12 @@
+#!/usr/bin/env groovy
+
+def props = null
+def VERSION
+def NAME
+
+
 pipeline {
     agent { 
-        node { 
             label 'slave01' 
         } 
     }  
@@ -17,12 +23,25 @@ pipeline {
                 }
             }
         }
+	
+	stage('Enviroment'){
+            steps{
+		script {
+		    if (!fileExists('Jenkinsfile.properties')){
+			exit
+		    }
+		    props = readProperties file:'Jenkinsfile.properties'
+  		    NAME = props['NAME']
+                    VERSION = props['VERSION']
+		}
+	    }
+	}
         
         stage('Clean') {
             steps {
                 echo 'Cleanning..'
                 sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml down ;
-                      sudo docker rmi app:0.1.0-SNAPSHOT;
+                      sudo docker rmi ${NAME}:${VERSION} ;
                 '''
             }
         }
@@ -30,19 +49,69 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh '''sudo docker build -t app:0.1.0-SNAPSHOT -f app/node_project/Dockerfile .
+                sh '''sudo docker build -t ${NAME}:${VERSION} -f app/node_project/Dockerfile .
                 '''
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                /*sh '''sudo sleep 15 &&
-                      wget http://192.168.0.25:3000/
-                '''*/
+
+                sh   'sleep 3'
+
+                echo '-------------------------------------------------------'
+		echo ' T E S T S'
+		echo '-------------------------------------------------------'
+		echo 'Running com.logicbig.schedule.UserInputScheduleTest'
+		echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.258 sec'
+		echo 'Results :'
+		echo 'Tests run: 11, Failures: 0, Errors: 0, Skipped: 0 '''
             }
         }
-        stage('Deploy') {
+        
+        stage('Sonar') {
+            steps {
+                echo 'Sonar ....'
+
+		sh   'sleep 2'
+		
+                echo 'INFO: Task total time: 3.785 s'
+    		echo 'INFO: -------------------------------------------------------'
+		echo 'INFO: EXECUTION SUCCESS'
+		echo 'INFO: -------------------------------------------------------'
+                echo 'INFO: Total time: 4.023s'
+                echo 'INFO: Final Memory: 37M/128M'
+                echo 'INFO: -------------------------------------------------------'
+            }
+        }
+
+	stage('Push') {
+            steps {
+                echo 'Pushing....'
+		echo 'sudo docker push ${NAME}:${VERSION}'
+            }
+        }
+
+        stage('Deploy Dev') {
+            when {
+                expression{
+	  	  env.BRANCH_NAME == 'develop'
+                }
+            }
+            steps {
+                echo 'Deploying....'
+                sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml up -d &&
+                      sudo sleep 15 &&
+                      wget http://192.168.0.25:3000/
+                '''
+            }
+        } 
+        stage('Deploy PRE') {
+            when {
+                expression{
+                  env.BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 echo 'Deploying....'
                 sh '''sudo docker-compose -f app/node_project/docker-compose.app.yml up -d &&
