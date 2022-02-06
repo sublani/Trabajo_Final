@@ -4,6 +4,15 @@ services:
     image: app:0.1.0-SNAPSHOT
     ports:
       - 3000:3000
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://192.168.0.25:12201"
+        tag: "docker"
+        labels: "environment,application"
+    labels:
+      - "environment=dev"
+      - "application=app"
     networks:
       - app
 

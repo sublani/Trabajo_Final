@@ -4,6 +4,8 @@ services:
     image: docker.elastic.co/kibana/kibana:7.4.2
     ports:
       - 7008:5601
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     networks:
       - app
 

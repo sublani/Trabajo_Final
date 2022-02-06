@@ -7,6 +7,10 @@ docker-compose -f ./app/monitor/node-exporter/docker-compose.node-exporter.yml d
 docker-compose -f ./app/monitor/prometheus/docker-compose.prometheus.yml down ;
 docker-compose -f ./app/monitor/grafana/docker-compose.grafana.yml down ;
 docker-compose -f ./app/monitor/alertmanager/docker-compose.alertmanager.yml down ;
+docker-compose -f ./app/monitor/elasticsearch/docker-compose.elasticsearch.yml down ;
+docker-compose -f ./app/monitor/logstash/docker-compose.logstash.yml down ;
+docker-compose -f ./app/monitor/kibana/docker-compose.kibana.yml down ;
+
 
 #----------------
 
