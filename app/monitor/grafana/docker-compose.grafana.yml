@@ -2,11 +2,10 @@ version: '3.7'
 services:
   grafana:
     image: grafana/grafana:8.3.4
-    user: "472"
     ports:
       - 7006:3000
     volumes:
-            #     - ./data:/var/lib/grafana
+            #- ./data:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     env_file:
       - ./grafana/config.monitoring

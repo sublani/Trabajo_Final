@@ -15,7 +15,7 @@ docker-compose -f ./app/monitor/kibana/docker-compose.kibana.yml down ;
 #----------------
 
 kill -9 echo $(ps aux  | grep java | awk '{print $2}') ;
-docker system prune -af
+#docker system prune -af
 
 #----------------
 

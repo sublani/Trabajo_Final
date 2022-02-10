@@ -28,11 +28,11 @@ docker-compose -f ./app/monitor/grafana/docker-compose.grafana.yml up -d ;
 
 docker-compose -f ./app/monitor/alertmanager/docker-compose.alertmanager.yml up -d ;
 
-docker-compose -f ./app/monitor/elasticsearch/docker-compose.elasticsearch.yml up -d ;
+#docker-compose -f ./app/monitor/elasticsearch/docker-compose.elasticsearch.yml up -d ;
 
-docker-compose -f ./app/monitor/logstash/docker-compose.logstash.yml up -d ;
+#docker-compose -f ./app/monitor/logstash/docker-compose.logstash.yml up -d ;
 
-docker-compose -f ./app/monitor/kibana/docker-compose.kibana.yml up -d ;
+#docker-compose -f ./app/monitor/kibana/docker-compose.kibana.yml up -d ;
 
 #----------------
 
