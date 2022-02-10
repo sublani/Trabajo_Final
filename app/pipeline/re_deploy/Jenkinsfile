@@ -1,0 +1,35 @@
+#!/usr/bin/env groovy
+
+def props = null
+def VERSION
+def NAME
+
+
+pipeline {
+  agent { 
+    label 'slave01' 
+  } 
+    
+  stages {  
+    stage('Deploy PRE') {
+      when {
+        expression{
+          env.BRANCH_NAME == 'master'
+        }
+      }
+      steps {
+        echo 'Deploying...'
+        sh '''docker-compose -f app/node_project/docker-compose.app.yml up -d &&
+              sleep 15 &&
+              wget http://localhost:3000/
+        '''
+      }
+    }
+  }
+    
+  post {
+    failure {
+      sh 'echo "Envía correo \nmail to: sergonji@bootcamp.com, subject: \'The Pipeline failed :(\''
+    }
+  }
+}

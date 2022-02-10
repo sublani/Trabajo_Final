@@ -1,0 +1,1 @@
+# Configura el fichero /etc/ssh/sshd_config

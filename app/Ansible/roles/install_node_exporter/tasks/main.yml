@@ -1,0 +1,46 @@
+---
+- name: Descargar node exporter
+  get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v0.18.0/node_exporter-0.18.0.linux-amd64.tar.gz
+    dest: /tmp
+    mode: '0644'
+
+- name: Descomprimir .gz
+  unarchive:
+    src: /tmp/node_exporter-0.18.0.linux-amd64.tar.gz
+    dest: /tmp
+    remote_src: yes
+
+- name: Crear el usuario node_exporter
+  user:
+    name: node_exporter
+    shell: /bin/false
+    state: present
+
+- name: Movemos node_exporter a /usr/local/bin
+  copy:
+    src: /tmp/node_exporter-0.18.0.linux-amd64/node_exporter
+    dest: /usr/local/bin/node_exporter
+    remote_src: yes
+    owner: node_exporter
+    group: node_exporter
+    mode: '0755'
+
+- name: Borrar archivo
+  file:
+    path: /tmp/node_exporter-0.18.0.linux-amd64
+    state: absent
+
+- name: Crear fichero de servicio
+  template:
+    src: "node_exporter.service.j2"
+    dest: "/etc/systemd/system/node_exporter.service"
+    owner: "root"
+    group: "root"
+    mode: 0644
+
+- name: Arrancar servicio
+  systemd:
+    name: "node_exporter"
+    state: started
+    enabled: yes

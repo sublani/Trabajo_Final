@@ -1,0 +1,32 @@
+---
+- name: Create a volume group on top of /dev/sdc
+  lvg:
+    vg: vg_data
+    pvs: /dev/sdc
+
+- name: lvcreate
+  lvol:
+    vg: vg_data
+    lv: lv_data
+    size: +95%FREE
+
+- name: Create a xfs filesystem on /dev/sdc
+  filesystem:
+    fstype: xfs
+    dev: /dev/vg_data/lv_data
+
+- name: Create a directory
+  file:
+    path: /data
+    state: directory
+
+- name: Ensure devices mounted
+  mount:
+    name: '/data'
+    src: /dev/mapper/vg_data-lv_data
+    fstype: xfs
+    opts: defaults
+    state: "mounted"
+    dump: 0
+    passno: 0
+    fstab: /etc/fstab
