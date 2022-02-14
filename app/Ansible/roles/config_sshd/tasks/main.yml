@@ -1,0 +1,8 @@
+---
+- name: Configuracion sshd
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^{{ item.del }}"
+    line: "{{ item.add }}"
+    state: present
+  with_items: "{{ param_sshd_config }}"

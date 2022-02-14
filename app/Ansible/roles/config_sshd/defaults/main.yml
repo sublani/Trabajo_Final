@@ -1,0 +1,5 @@
+# Borrado de claves SSH 
+param_sshd_config:
+  - {del: "PermitRootLogin", add: "PermitRootLogin no"}
+  - {del: "PasswordAuthentication", add: "PasswordAuthentication no"}
+  - {del: "IgnoreRhosts", add: "IgnoreRhosts yes"}
