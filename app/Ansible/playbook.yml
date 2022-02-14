@@ -1,0 +1,10 @@
+- name: Ansible by Sergio Gonzalez Jimenez
+
+  hosts: machine
+  roles:
+    - role: test_conexion
+    - role: config_sshd
+    - role: install_node_exporter
+    - role: install_package
+    - role: mount_disk
+    - role: install_docker

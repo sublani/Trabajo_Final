@@ -1,0 +1,20 @@
+install_program:
+  - vim
+  - wget
+  - bash-completion
+  - net-tools
+  - git
+  - tree
+  - unzip
+  - mlocate
+  - make
+  - lvm2
+  - bash
+  - openssh-server
+  - tar
+  - firewalld
+  - chrony
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common 
