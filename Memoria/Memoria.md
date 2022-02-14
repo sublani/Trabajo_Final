@@ -37,6 +37,16 @@ Además, me hubiera gustado montar la parte del alertmanager, para poner alertas
 
 Utilizando el driver de docker, gelf, y la tecnología de ELK, lo que hace es exponer los logs, y a través de kibana podemos consultarlos.
 
+## Ansible
+
+Esto lo he utilizado para aprovisionar la máquina donde se iba a desplegar todo.
+
+## Mejoras
+
+* Configurar bien el alertmanager
+* Utilizar Ansible para el despliegue de la app
+* Colocar límites en los dockers
+
 ## Conclusión
 
 Utilizando docker-compose, no habría problema montar este sistema de CI/CD, incluso si queremos realizarlo en una máquina más pequeña solo habría que introducir límites a los docker.
